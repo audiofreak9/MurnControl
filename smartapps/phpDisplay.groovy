@@ -6,7 +6,7 @@
 
 definition(
     name: "MurnControl",
-    namespace: "MurnControl",
+    namespace: "audiofreak9",
     author: "Corey Murnaghan",
     description: "API for ST PHP display and control page",
     category: "My Apps",
