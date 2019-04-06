@@ -8,7 +8,7 @@ definition(
     name: "MurnControl",
     namespace: "audiofreak9",
     author: "Corey Murnaghan",
-    description: "API for ST PHP display and control page",
+    description: "PHP display and control page",
     category: "My Apps",
     iconUrl: "https://s3.amazonaws.com/murnaghan/Skill60x60.png",
     iconX2Url: "https://s3.amazonaws.com/murnaghan/Skill120x120.png",
