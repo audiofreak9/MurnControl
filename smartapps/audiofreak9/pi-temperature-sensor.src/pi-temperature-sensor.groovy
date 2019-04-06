@@ -18,7 +18,7 @@ definition(
     namespace: "audiofreak9",
     author: "Corey Murnaghan",
     description: "REST endpoint for Pi to update a Simulated Temperature Sensor",
-    category: "Convenience",
+    category: "My Apps",
     iconUrl: "https://s3.amazonaws.com/murnaghan/Skill60x60.png",
     iconX2Url: "https://s3.amazonaws.com/murnaghan/Skill120x120.png",
     iconX3Url: "https://s3.amazonaws.com/murnaghan/Skill120x120.png",
