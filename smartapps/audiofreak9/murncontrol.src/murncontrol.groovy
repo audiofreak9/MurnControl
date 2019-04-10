@@ -150,7 +150,6 @@ mappings {
 			GET: "showHumidity"
 		]
 	}
-    
     path("/batteries") {
 		action: [
 			GET: "listBatteries"
@@ -161,7 +160,6 @@ mappings {
 			GET: "showBattery"
 		]
 	}
-    
     path("/powers") {
 		action: [
 			GET: "listPowers"
@@ -269,8 +267,7 @@ def showHumidity() {
 }
 
 def listPresence() {
-	locations.collect{presence(it,"presence")}
-	//presence?.collect{[type: "presence", id: it.id, name: it.displayName, status: it.currentValue('presence')]}?.sort{it.name}
+	presence?.collect{[type: "presence", id: it.id, name: it.displayName, status: it.currentValue('presence')]}?.sort{it.name}
 }
 
 def showPresence() {
@@ -425,8 +422,4 @@ private item(device, s) {
 
 private device(it, type) {
 	it ? [id: it.id, label: it.label, name: it.displayName, type: type, level: it.currentValue('level'), status: it.currentValue('switch')] : null
-}
-
-private presence(it, type) {
-	it ? [id: it.id, label: it.label, name: it.displayName, type: type, status: it.currentValue('presence')] : null
 }
