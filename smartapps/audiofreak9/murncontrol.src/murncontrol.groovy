@@ -212,7 +212,8 @@ def installed() {}
 def updated() {}
 
 def listSwitches() {
-	switches.collect{device(it,"switch")}
+	//switches.collect{device(it,"switch")}
+	switches.collect{[type: "switch", id: it.id, name: it.displayName, status: it.currentValue('switch'), level: it.currentValue('level'), label: it.label]}?.sort{it.name}
 }
 
 def showSwitch() {
@@ -228,7 +229,8 @@ void updateSwitch() {
 }
 
 def listDimmers() {
-	dimmers.collect{device(it,"dimmer")}
+	//dimmers.collect{device(it,"dimmer")}
+	switches.collect{[type: "dimmer", id: it.id, name: it.displayName, status: it.currentValue('dimmer'), level: it.currentValue('level'), label: it.label]}?.sort{it.name}
 }
 
 def showDimmer() {
@@ -240,7 +242,7 @@ void updateDimmer() {
 }
 
 def listLocks() {
-     lock?.collect{[type: "lock", id: it.id, name: it.displayName, status: it.currentValue('lock')]}?.sort{it.name}
+    lock?.collect{[type: "lock", id: it.id, name: it.displayName, status: it.currentValue('lock')]}?.sort{it.name}
 
 }
 def showLock() {
@@ -287,7 +289,7 @@ def showMotionEvents() {
 }
 
 def listIlluminants() {
-     illuminants?.collect{[type: "illuminant", id: it.id, name: it.displayName, status: it.currentValue('illuminance')]}?.sort{it.name}
+    illuminants?.collect{[type: "illuminant", id: it.id, name: it.displayName, status: it.currentValue('illuminance')]}?.sort{it.name}
 }
 
 def showIlluminant() {
@@ -311,7 +313,7 @@ def showBattery() {
 }
 
 def listPowers() {
-     powers?.collect{[type: "power", id: it.id, name: it.displayName, status: it.currentValue("power")]}?.sort{it.name}
+     powers?.collect{[type: "power", id: it.id, name: it.displayName, status: it.currentValue('power')]}?.sort{it.name}
 
 }
 def showPower() {
@@ -319,7 +321,7 @@ def showPower() {
 }
 
 def listEnergies() {
-     energys?.collect{[type: "energy", id: it.id, name: it.displayName, status: it.currentValue("energy")]}?.sort{it.name}
+     energys?.collect{[type: "energy", id: it.id, name: it.displayName, status: it.currentValue('energy')]}?.sort{it.name}
 
 }
 def showEnergy() {
