@@ -212,8 +212,8 @@ def installed() {}
 def updated() {}
 
 def listSwitches() {
-	//switches.collect{device(it,"switch")}
-	switches.collect{[type: "switch", id: it.id, name: it.displayName, status: it.currentValue('switch'), level: it.currentValue('level'), label: it.label]}?.sort{it.name}
+	switches.collect{device(it,"switch")}
+	//switches.collect{[type: "switch", id: it.id, name: it.displayName, status: it.currentValue('switch'), level: it.currentValue('level'), label: it.label]}?.sort{it.name}
 }
 
 def showSwitch() {
@@ -229,8 +229,8 @@ void updateSwitch() {
 }
 
 def listDimmers() {
-	//dimmers.collect{device(it,"dimmer")}
-	switches.collect{[type: "dimmer", id: it.id, name: it.displayName, status: it.currentValue('dimmer'), level: it.currentValue('level'), label: it.label]}?.sort{it.name}
+	dimmers.collect{device(it,"dimmer")}
+	//switches.collect{[type: "dimmer", id: it.id, name: it.displayName, status: it.currentValue('dimmer'), level: it.currentValue('level'), label: it.label]}?.sort{it.name}
 }
 
 def showDimmer() {

@@ -22,7 +22,7 @@ definition(
     iconUrl: "https://s3.amazonaws.com/murnaghan/Skill60x60.png",
     iconX2Url: "https://s3.amazonaws.com/murnaghan/Skill120x120.png",
     iconX3Url: "https://s3.amazonaws.com/murnaghan/Skill120x120.png",
-    oauth: [displayName: "Cifarelli.net", displayLink: ""])
+    oauth: [displayName: "Pi Temperature Sensor", displayLink: "coreyswrite.com"])
  
 preferences {
     section("Allow Endpoint to Control This Thing") {
