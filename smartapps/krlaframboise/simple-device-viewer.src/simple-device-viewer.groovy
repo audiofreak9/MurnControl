@@ -83,13 +83,14 @@ definition(
     author: "Kevin LaFramboise",
     description: "Provides information about the state of the specified devices.",
     category: "My Apps",
-		iconUrl: "https://raw.githubusercontent.com/krlaframboise/Resources/master/simple-device-viewer/simple-device-viewer-icon.png",
+	iconUrl: "https://raw.githubusercontent.com/krlaframboise/Resources/master/simple-device-viewer/simple-device-viewer-icon.png",
     iconX2Url: "https://raw.githubusercontent.com/krlaframboise/Resources/master/simple-device-viewer/simple-device-viewer-icon-2x.png",
-    iconX3Url: "https://raw.githubusercontent.com/krlaframboise/Resources/master/simple-device-viewer/simple-device-viewer-icon-3x.png")
+    iconX3Url: "https://raw.githubusercontent.com/krlaframboise/Resources/master/simple-device-viewer/simple-device-viewer-icon-3x.png"
+ )
 
  preferences {
 	page(name:"mainPage")
-  page(name:"capabilityPage")
+    page(name:"capabilityPage")
 	page(name:"lastEventPage")
 	page(name:"refreshLastEventPage")
 	page(name:"toggleSwitchPage")
@@ -144,8 +145,8 @@ def mainPage() {
 				"Other Settings",
 				"otherSettingsPage")
 			getPageLink("dashboardSettingsPageLink",
-					"Dashboard Settings",
-					"dashboardSettingsPage")
+				"Dashboard Settings",
+				"dashboardSettingsPage")
 		}
 	}
 }
@@ -190,8 +191,13 @@ def devicesPage() {
 				title: "Which Sensors?",
 				multiple: true,
 				hideWhenEmpty: true,
-				required: false			
-			capabilitySettings().each {				
+				required: false
+			input "switches", "capability.switch",
+				title: "Which Switches?",
+				multiple: true,
+				hideWhenEmpty: true,
+				required: false		
+			capabilitySettings().each {
 				input "${getPrefName(it)}Devices",
 					"capability.${getPrefType(it)}",
 					title: "Which ${getPluralName(it)}?",
