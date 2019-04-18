@@ -192,11 +192,6 @@ def devicesPage() {
 				multiple: true,
 				hideWhenEmpty: true,
 				required: false
-			input "switches", "capability.switch",
-				title: "Which Switches?",
-				multiple: true,
-				hideWhenEmpty: true,
-				required: false		
 			capabilitySettings().each {
 				input "${getPrefName(it)}Devices",
 					"capability.${getPrefType(it)}",
