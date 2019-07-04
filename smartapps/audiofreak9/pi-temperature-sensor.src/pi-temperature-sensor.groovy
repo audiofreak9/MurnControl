@@ -17,7 +17,7 @@ definition(
     name: "Pi Temperature Sensor",
     namespace: "audiofreak9",
     author: "Corey Murnaghan",
-    description: "REST endpoint for RPi to update a Simulated Temperature Sensor",
+    description: "REST endpoint for RPi to update Simulated Temperature Sensors",
     category: "My Apps",
     iconUrl: "https://s3.amazonaws.com/murnaghan/Skill60x60.png",
     iconX2Url: "https://s3.amazonaws.com/murnaghan/Skill120x120.png",
@@ -59,10 +59,13 @@ def initialize() {
 void updateTemp() {
 	log.debug "passed param dev: ${params['dev']}"
 	log.debug "SettingsTDevice: ${settings.tdevice}"
-
+    
+	//log.debug "Tdevice: ${tdevice}"
+    
     def a_device = settings.tdevice.find { it.deviceNetworkId == params['dev'] }
 
-    //log.debug "found device: ${a_device}"
+    log.debug "Matched device: ${a_device}"
+    
 
     if(a_device != null){ update(a_device) }    
 }
@@ -82,5 +85,5 @@ private void update(device) {
         t = 9 * Double.parseDouble(params['temp']) / 5 + 32
      }
      def x = Math.round(t * 100) / 100
-     tdevice.setTemperature(x)
+     device.setTemperature(x)
 }
