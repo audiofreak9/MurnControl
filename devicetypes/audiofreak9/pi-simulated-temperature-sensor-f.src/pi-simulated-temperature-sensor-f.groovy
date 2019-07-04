@@ -1,5 +1,6 @@
 /**
  *  Copyright 2016 Paul Cifarelli
+ *  Updated 2018/2019 Corey Murnaghan
  *
  *  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  *  in compliance with the License. You may obtain a copy of the License at:
@@ -15,7 +16,6 @@ metadata {
     definition (name: "Pi Simulated Temperature Sensor °F", namespace: "audiofreak9", author: "Corey Murnaghan") {
         capability "Temperature Measurement"
         capability "Sensor"
- 
         command "setTemperature", ["number"]
     }
  
