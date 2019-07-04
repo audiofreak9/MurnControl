@@ -2,6 +2,7 @@
  *  Pi Temperature Sensor Endpoints
  *
  *  Copyright 2016 Paul Cifarelli
+ *  Updated 2018/2019 Corey Murnaghan
  *
  *  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  *  in compliance with the License. You may obtain a copy of the License at:
@@ -40,13 +41,11 @@ mappings {
  
 def installed() {
     log.debug "Installed with settings: ${settings}"
- 
     initialize()
 }
  
 def updated() {
     log.debug "Updated with settings: ${settings}"
-    
     unsubscribe()
     initialize()
 }
@@ -59,21 +58,14 @@ def initialize() {
 void updateTemp() {
 	log.debug "passed param dev: ${params['dev']}"
 	log.debug "SettingsTDevice: ${settings.tdevice}"
-    
-	//log.debug "Tdevice: ${tdevice}"
-    
     def a_device = settings.tdevice.find { it.deviceNetworkId == params['dev'] }
-
     log.debug "Matched device: ${a_device}"
-    
-
-    if(a_device != null){ update(a_device) }    
+    if(a_device != null){ update(a_device) }
 }
  
 private void update(device) {
      log.debug "update, request: params: ${params['temp']} ${params['units']}"
      def t = 0
-     
      if (location.temperatureScale == params['units']) {
         log.debug "yes, the temperatureScale is the same (${params['units']})"
         t = Double.parseDouble(params['temp'])
